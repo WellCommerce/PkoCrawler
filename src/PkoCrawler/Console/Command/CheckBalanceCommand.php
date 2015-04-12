@@ -21,7 +21,7 @@ class CheckBalanceCommand extends AbstractPkoCommand
         $pass    = $this->configuration['ipko']['pass'];
         $file    = 'pko' . time() . '.png';
         $path    = ROOT_PATH . '/web/screens/' . $file;
-        $command = "phantomjs web/pko.js {$user} {$pass} {$path}";
+        $command = "phantomjs --ignore-ssl-errors=yes --ssl-protocol=any web/pko.js {$user} {$pass} {$path}";
         $process = new Process($command);
         $process->setTimeout(60);
         $output->write('Starting process' . PHP_EOL);
