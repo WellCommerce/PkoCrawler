@@ -35,3 +35,9 @@
 
 # Composer PHAR
 /composer.phar
+
+# PHPStorm config files
+.idea
+
+# Fetched screens
+/web/screens

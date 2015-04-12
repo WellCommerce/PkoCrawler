@@ -1,0 +1,9 @@
+parameters:
+    ipko:
+        user:
+        pass:
+    slack:
+        team:
+        token:
+        user:
+
