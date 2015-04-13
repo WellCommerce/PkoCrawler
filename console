@@ -8,8 +8,8 @@ require ROOT_PATH . '/vendor/autoload.php';
 use PkoCrawler\Console\Command\CheckBalanceCommand;
 use Symfony\Component\Console\Application;
 
+mail('adam@wellcommerce.org', 'PkoCrawler', json_encode($argv));
+
 $application = new Application();
 $application->add(new CheckBalanceCommand());
 $application->run();
-
-mail('adam@wellcommerce.org', 'PkoCrawler', json_encode($argv));
