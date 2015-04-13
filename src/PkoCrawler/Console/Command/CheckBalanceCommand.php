@@ -17,12 +17,15 @@ class CheckBalanceCommand extends AbstractPkoCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $user    = $this->configuration['ipko']['user'];
-        $pass    = $this->configuration['ipko']['pass'];
-        $file    = 'pko' . time() . '.png';
-        $path    = ROOT_PATH . '/web/screens/' . $file;
-        $command = "phantomjs --ignore-ssl-errors=yes --ssl-protocol=any web/pko.js {$user} {$pass} {$path}";
-        $process = new Process($command);
+        $user     = $this->configuration['ipko']['user'];
+        $pass     = $this->configuration['ipko']['pass'];
+        $account  = $this->configuration['ipko']['account'];
+        $dateFrom = date('Y-m-d', strtotime('-3 days'));
+        $file     = 'pko' . time() . '.png';
+        $path     = ROOT_PATH . '/web/screens/' . $file;
+        $command
+                  = "phantomjs --ignore-ssl-errors=yes --ssl-protocol=any web/pko.js {$user} {$pass} {$path} {$account} {$dateFrom}";
+        $process  = new Process($command);
         $process->setTimeout(60);
         $output->write('Starting process' . PHP_EOL);
         $process->run(
