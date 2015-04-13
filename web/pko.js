@@ -18,7 +18,7 @@ page.open("https://www.ipko.pl/", function(status) {
         page.evaluate(function(options) {
             document.querySelector("a[title='Historia rachunku']").click();
         });
-    }, 5000);
+    }, 10000);
 
     window.setTimeout(function(){
         page.evaluate(function(options) {
@@ -26,7 +26,7 @@ page.open("https://www.ipko.pl/", function(status) {
             document.querySelector("input[id='beg_date']").value = options[5];
             document.querySelector("input[name='btn_filter']").click();
         }, args);
-    }, 7500);
+    }, 15000);
 
     window.setTimeout(function(){
         page.clipRect = {
@@ -38,5 +38,5 @@ page.open("https://www.ipko.pl/", function(status) {
 
         page.render(args[3]);
         phantom.exit();
-    }, 12500);
+    }, 20000);
 });
